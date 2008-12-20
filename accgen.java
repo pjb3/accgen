@@ -15,10 +15,14 @@ Nevertheless, I think this is worth having to compare Object-Oriented vs. Functi
 class accgen {
 
   public static void main(String... args) {
-    accgen foo = new accgen(1);
+    accgen acc = foo(1);
     for(int i = 2; i <= 5; i++) {
-      System.out.println(i+": "+foo.call(i));
+      System.out.println(i+": "+acc.call(i));
     }
+  }
+  
+  public static accgen foo(int n) {
+    return new accgen(n);
   }
   
   private int n;
