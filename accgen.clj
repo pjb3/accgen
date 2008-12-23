@@ -11,8 +11,8 @@
 ;and mutability the exception, which is the opposite of most other languages.
 
 (defn foo [n] 
-  (let [r (ref n)]
-    (fn [i] (dosync (commute r + i)))))
+  (let [r (atom n)]
+    (fn [i] (swap! r + i))))
 
 (let [acc (foo 1)] 
   (doseq [n (range 2 6)] 
